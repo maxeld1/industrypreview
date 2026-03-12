@@ -117,7 +117,10 @@ footer{
 
 .page-transition-layer{
   position: fixed;
-  inset: 0;
+  top: var(--header-h, 88px);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 5000;
   pointer-events: none;
   opacity: 0;
@@ -130,7 +133,6 @@ footer{
   transition: opacity .48s cubic-bezier(.22,1,.36,1);
 }
 
-body.page-entering header,
 body.page-entering main,
 body.page-entering footer{
   opacity: 0;
@@ -138,7 +140,6 @@ body.page-entering footer{
   filter: blur(10px);
 }
 
-body.page-entered header,
 body.page-entered main,
 body.page-entered footer{
   transition:
@@ -154,7 +155,6 @@ body.is-transitioning .page-transition-layer{
   opacity: 1;
 }
 
-body.is-transitioning header,
 body.is-transitioning main,
 body.is-transitioning footer{
   opacity: 0;
@@ -283,13 +283,10 @@ h3{ font-size:1.45rem; line-height:1.25; }
     transition: none;
   }
 
-  body.page-entering header,
   body.page-entering main,
   body.page-entering footer,
-  body.page-entered header,
   body.page-entered main,
   body.page-entered footer,
-  body.is-transitioning header,
   body.is-transitioning main,
   body.is-transitioning footer{
     opacity: 1;
