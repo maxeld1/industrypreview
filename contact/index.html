@@ -25,6 +25,21 @@ License: Proprietary — Not for redistribution without permission.
   <link rel="apple-touch-icon" href="../favicon.png" />
   <link rel="manifest" href="../manifest.webmanifest" />
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <meta property="og:site_name" content="Industry Salon" />
   <meta property="og:title" content="Contact | Industry Salon Newtown Square, PA" />
   <meta property="og:description" content="Contact Industry Salon in Newtown Square, PA. Call (484) 420-4082, book online, or visit us at 4631 W. Chester Pike." />
@@ -64,7 +79,45 @@ License: Proprietary — Not for redistribution without permission.
 </head>
 <body class="contact-page">
 
-<div data-include="header"></div>
+<header>
+  <div class="container nav nav-centered">
+    <nav id="mobile-menu" class="nav-left site-nav">
+      <ul>
+        <li><a href="../services/">Services</a></li>
+        <li><a href="../stylists/">Stylists</a></li>
+        <li><a href="../contact/">Contact</a></li>
+        <li class="mobile-only">
+          <a href="https://na2.meevo.com/CustomerPortal/egift/order/gift-type?tenantId=502125&locationId=502944" target="_blank" rel="noopener noreferrer">
+            Gift Card
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <a class="brand brand-center" href="../">
+      <img src="../assets/images/industry_salon_logo.png" alt="Industry Salon Logo" class="brand-logo" />
+    </a>
+    <div class="nav-right">
+      <div class="mobile-header-actions">
+        <a class="btn btn-primary mobile-book" href="https://na2.meevo.com/CustomerPortal/login?tenantId=502125&locationId=502944" target="_blank" rel="noopener noreferrer">
+          Book Now
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+            <path class="line line1" d="M4 7h16" />
+            <path class="line line2" d="M4 12h16" />
+            <path class="line line3" d="M4 17h16" />
+          </svg>
+        </button>
+      </div>
+      <a class="nav-utility desktop-only" href="https://na2.meevo.com/CustomerPortal/egift/order/gift-type?tenantId=502125&locationId=502944" target="_blank" rel="noopener noreferrer">
+        Gift Card
+      </a>
+      <a class="btn btn-primary cta-book desktop-only" href="https://na2.meevo.com/CustomerPortal/login?tenantId=502125&locationId=502944" target="_blank" rel="noopener noreferrer">
+        Book Now
+      </a>
+    </div>
+  </div>
+</header>
 
 <main class="section contact-layout">
   <div class="container">
@@ -137,10 +190,62 @@ License: Proprietary — Not for redistribution without permission.
   </div>
 </main>
 
-<div data-include="footer"></div>
+<footer>
+  <div class="container cols footer-new">
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../services/">Services</a></li>
+        <li><a href="../stylists/">Stylists</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-center">
+      <img src="../assets/images/industry_salon_logo.png" alt="Industry Salon" class="footer-logo" />
+      <div class="footer-social center-social">
+        <a href="https://instagram.com/industrysalonnewtownsquare" target="_blank" aria-label="Instagram">
+          <svg class="icon" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4.2" />
+            <circle cx="17.2" cy="6.8" r="1" />
+          </svg>
+        </a>
+        <a href="mailto:industrysalonfrontdesk@gmail.com" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7l9 6 9-6" />
+          </svg>
+        </a>
+        <a href="tel:+14844204082" aria-label="Call Industry Salon">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.9v2.1a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3.3 18.6 18.6 0 0 1-5.8-5.8A19 19 0 0 1 2.4 3.6 2 2 0 0 1 4.4 1.4h2.1A2 2 0 0 1 8.5 3l.5 2.3a2 2 0 0 1-.5 1.8L7 8.6a15.5 15.5 0 0 0 8.4 8.4l1.5-1.5a2 2 0 0 1 1.8-.5l2.3.5a2 2 0 0 1 1.5 1.4Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-hours">
+      <h4>Hours</h4>
+      <div class="hours-list">
+        <div class="hours-row"><span>Monday</span><span>9-8</span></div>
+        <div class="hours-row"><span>Tuesday</span><span>9-8</span></div>
+        <div class="hours-row"><span>Wednesday</span><span>9-8</span></div>
+        <div class="hours-row"><span>Thursday</span><span>9-8</span></div>
+        <div class="hours-row"><span>Friday</span><span>8-2</span></div>
+        <div class="hours-row"><span>Saturday</span><span>8-2</span></div>
+        <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>&copy; <span id="year"></span> Industry Salon</span>
+      <span>Web Design and Development by <a href="https://maxwaystudio.com/" target="_blank" rel="noopener noreferrer">MaxWayStudio</a></span>
+    </div>
+  </div>
+</footer>
 
 <script src="../js/main.js"></script>
-<script src="../js/partials.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
 </body>
 </html>
