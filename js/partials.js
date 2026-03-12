@@ -1,37 +1,38 @@
 // /js/partials
 (function () {
-  function getRootPrefix() {
-    const path = window.location.pathname.replace(/\/+$/, "");
-    if (!path || path === "") return "";
+  function getProjectRoot() {
+    const currentScript = document.currentScript;
+    if (currentScript && currentScript.src) {
+      return new URL("../", currentScript.src);
+    }
 
-    const segments = path.split("/").filter(Boolean);
-    if (!segments.length) return "";
+    const script = document.querySelector('script[src$="js/partials.js"]');
+    if (script && script.src) {
+      return new URL("../", script.src);
+    }
 
-    const isFile = /\.[a-z0-9]+$/i.test(segments[segments.length - 1]);
-    const depth = isFile ? segments.length - 1 : segments.length;
-    return depth > 0 ? "../".repeat(depth) : "";
+    return new URL("./", window.location.href);
   }
 
-  function rewriteLocalPath(value, rootPrefix) {
+  function rewriteLocalPath(value, projectRoot) {
     if (!value || !value.startsWith("/") || value.startsWith("//")) return value;
-    const trimmed = value.slice(1);
-    return trimmed ? `${rootPrefix}${trimmed}` : (rootPrefix || "./");
+    return new URL(value.slice(1), projectRoot).toString();
   }
 
-  function rewriteFragmentPaths(fragment, rootPrefix) {
+  function rewriteFragmentPaths(fragment, projectRoot) {
     fragment.querySelectorAll("[href], [src]").forEach((node) => {
       ["href", "src"].forEach((attr) => {
         if (!node.hasAttribute(attr)) return;
-        node.setAttribute(attr, rewriteLocalPath(node.getAttribute(attr), rootPrefix));
+        node.setAttribute(attr, rewriteLocalPath(node.getAttribute(attr), projectRoot));
       });
     });
   }
 
-  async function inject(targetSelector, file, rootPrefix) {
+  async function inject(targetSelector, file, projectRoot) {
     const mount = document.querySelector(targetSelector);
     if (!mount) return;
 
-    const url = `${rootPrefix}partials/${file}`;
+    const url = new URL(`partials/${file}`, projectRoot);
     try {
       const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
@@ -39,18 +40,18 @@
       const html = await res.text();
       const template = document.createElement("template");
       template.innerHTML = html.trim();
-      rewriteFragmentPaths(template.content, rootPrefix);
+      rewriteFragmentPaths(template.content, projectRoot);
       mount.replaceWith(template.content);
     } catch (err) {
-      console.error("Include failed:", url, err);
+      console.error("Include failed:", url.toString(), err);
     }
   }
 
   async function run() {
-    const rootPrefix = getRootPrefix();
+    const projectRoot = getProjectRoot();
 
-    await inject('[data-include="header"]', "header.html", rootPrefix);
-    await inject('[data-include="footer"]', "footer.html", rootPrefix);
+    await inject('[data-include="header"]', "header.html", projectRoot);
+    await inject('[data-include="footer"]', "footer.html", projectRoot);
 
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
