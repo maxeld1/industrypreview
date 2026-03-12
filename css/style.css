@@ -247,7 +247,7 @@ h3{ font-size:1.45rem; line-height:1.25; }
   width: 34px;
   height: 34px;
   margin: 0 auto 8px;
-  background-image: url('/assets/icons/favicon_white.png');
+  background-image: url('../assets/icons/favicon_white.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -292,7 +292,7 @@ h3{ font-size:1.45rem; line-height:1.25; }
   width: 34px;
   height: 34px;
   margin: 0 auto 8px;
-  background-image: url('/assets/icons/favicon_white.png');
+  background-image: url('../assets/icons/favicon_white.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
