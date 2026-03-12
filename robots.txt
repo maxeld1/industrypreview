@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.industrysalonlounge.com/sitemap.xml
