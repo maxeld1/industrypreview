@@ -2728,6 +2728,20 @@ body{ padding-top: var(--header-h); }
     text-shadow: 0 2px 18px rgba(0,0,0,.28);
   }
 
+  .stylists-page .page-title{
+    color: var(--logo-brown);
+    text-shadow: none;
+  }
+
+  .stylists-page .page-title::after{
+    background: var(--line);
+  }
+
+  .stylists-page .stylists-hero p{
+    color: rgba(89,78,69,.78);
+    text-shadow: none;
+  }
+
   .services-page .page-title::after{
     background: rgba(255,255,255,.45);
   }
