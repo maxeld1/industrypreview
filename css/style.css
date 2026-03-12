@@ -122,29 +122,29 @@ footer{
   pointer-events: none;
   opacity: 0;
   background:
-          radial-gradient(circle at 1px 1px, rgba(89,78,69,.05) .8px, transparent .9px),
-          radial-gradient(circle at 2px 2px, rgba(180,137,106,.04) .8px, transparent .9px),
-          linear-gradient(180deg, rgba(255,252,247,.98), rgba(239,230,220,.98));
+          radial-gradient(circle at 1px 1px, rgba(89,78,69,.07) .8px, transparent .9px),
+          radial-gradient(circle at 2px 2px, rgba(180,137,106,.055) .8px, transparent .9px),
+          linear-gradient(180deg, rgba(255,252,247,.995), rgba(239,230,220,.992));
   background-size: 7px 7px, 11px 11px, 100% 100%;
   background-position: 0 0, 3px 4px, 0 0;
-  transition: opacity .38s ease;
+  transition: opacity .48s cubic-bezier(.22,1,.36,1);
 }
 
 body.page-entering header,
 body.page-entering main,
 body.page-entering footer{
   opacity: 0;
-  transform: translateY(16px);
-  filter: blur(6px);
+  transform: translateY(26px) scale(.985);
+  filter: blur(10px);
 }
 
 body.page-entered header,
 body.page-entered main,
 body.page-entered footer{
   transition:
-          opacity .6s cubic-bezier(.22,1,.36,1),
-          transform .6s cubic-bezier(.22,1,.36,1),
-          filter .6s ease;
+          opacity .82s cubic-bezier(.22,1,.36,1),
+          transform .82s cubic-bezier(.22,1,.36,1),
+          filter .82s ease;
   opacity: 1;
   transform: none;
   filter: none;
@@ -158,12 +158,12 @@ body.is-transitioning header,
 body.is-transitioning main,
 body.is-transitioning footer{
   opacity: 0;
-  transform: translateY(20px);
-  filter: blur(6px);
+  transform: translateY(34px) scale(.982);
+  filter: blur(10px);
   transition:
-          opacity .32s ease,
-          transform .32s ease,
-          filter .32s ease;
+          opacity .42s cubic-bezier(.32,0,.2,1),
+          transform .42s cubic-bezier(.32,0,.2,1),
+          filter .42s ease;
 }
 
 @supports (overflow: clip){
