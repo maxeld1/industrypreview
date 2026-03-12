@@ -2732,16 +2732,30 @@ body{ padding-top: var(--header-h); }
   }
 
   .home-reels-grid{
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(168px, 62vw);
+    grid-template-columns: none;
+    justify-content: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 4px 10px;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
   .home-reel-card{
     border-radius: 18px;
+    scroll-snap-align: start;
   }
 
   .home-reel-video{
-    transform: scale(1.1);
+    transform: scale(1.06);
+  }
+
+  .home-reels-grid::-webkit-scrollbar{
+    display: none;
   }
 
   .services-page .page-title,
