@@ -1778,6 +1778,7 @@ footer .cols.footer-new{
     gap:12px;
     width:100%;
     padding: 0;
+    overflow: visible;
   }
 
   /* Book Now fills remaining space (not huge) */
@@ -1785,13 +1786,15 @@ footer .cols.footer-new{
     flex:1;
     min-width:0;
     text-align:center;
+    min-height: 46px;
 
     /* tighter than .btn defaults */
-    padding: .58rem .9rem;
+    padding: .64rem .9rem;
     font-size: .92rem;
     letter-spacing: .06em;
     border-radius: 16px;
-    line-height: 1.1;
+    line-height: 1;
+    overflow: visible;
   }
 
   /* Hamburger stays a neat square on the right */
@@ -1852,16 +1855,19 @@ footer .cols.footer-new{
     gap: 12px;
     width: 100%;
     padding: 0 22px;
+    overflow: visible;
   }
 
   /* Book Now fills space, but not oversized */
   .mobile-header-actions .mobile-book{
     flex: 1;
     min-width: 0;
-    padding: .58rem .9rem;
+    min-height: 46px;
+    padding: .64rem .9rem;
     font-size: .90rem;
-    line-height: 1.1;
+    line-height: 1;
     border-radius: 16px;
+    overflow: visible;
   }
 
   /* Hamburger compact square on right */
@@ -1918,11 +1924,13 @@ body{ padding-top: var(--header-h); }
     width: 100%;
     padding: 0 !important;
     gap: 10px;
+    overflow: visible;
   }
 
   .mobile-header-actions .mobile-book{
     margin-left: 0;
     margin-right: 0;
+    min-height: 46px;
   }
 }
 
