@@ -2,6 +2,75 @@
 (function(){
   const log = (...a)=>console.log('[nav]', ...a);
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let transitionLocked = false;
+
+  function createPageTransitionLayer(){
+    let layer = document.querySelector('.page-transition-layer');
+    if (layer) return layer;
+
+    layer = document.createElement('div');
+    layer.className = 'page-transition-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(layer);
+    return layer;
+  }
+
+  function initPageEntrance(){
+    document.body.classList.add('page-entering');
+    createPageTransitionLayer();
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('page-entered');
+      });
+    });
+  }
+
+  function isEligibleTransitionLink(anchor){
+    if (!anchor) return false;
+    if (anchor.target && anchor.target !== '_self') return false;
+    if (anchor.hasAttribute('download')) return false;
+    if (anchor.getAttribute('rel') === 'external') return false;
+    if (anchor.dataset.noTransition === 'true') return false;
+
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#')) return false;
+
+    const url = new URL(href, location.href);
+    if (url.origin !== location.origin) return false;
+    if (url.pathname === location.pathname && url.search === location.search && url.hash) return false;
+
+    return true;
+  }
+
+  function initPageTransitions(){
+    createPageTransitionLayer();
+
+    window.addEventListener('pageshow', () => {
+      transitionLocked = false;
+      document.body.classList.remove('is-transitioning');
+      document.body.classList.add('page-entered');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (prefersReducedMotion || transitionLocked) return;
+      if (event.defaultPrevented) return;
+      if (event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      const anchor = event.target.closest('a');
+      if (!isEligibleTransitionLink(anchor)) return;
+
+      const url = new URL(anchor.href, location.href);
+      transitionLocked = true;
+      event.preventDefault();
+      document.body.classList.add('is-transitioning');
+
+      window.setTimeout(() => {
+        window.location.href = url.href;
+      }, 360);
+    });
+  }
 
   // Normalize path to highlight active link
   function norm(p){ return ("/"+p).replace(/\/+/g,"/").replace(/\/$/,""); }
@@ -184,5 +253,11 @@
 
   if (document.readyState !== 'loading') initReviewNavigation();
   else document.addEventListener('DOMContentLoaded', initReviewNavigation);
+
+  if (document.readyState !== 'loading') initPageEntrance();
+  else document.addEventListener('DOMContentLoaded', initPageEntrance);
+
+  if (document.readyState !== 'loading') initPageTransitions();
+  else document.addEventListener('DOMContentLoaded', initPageTransitions);
 
 })();
