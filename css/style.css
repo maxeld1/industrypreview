@@ -1198,6 +1198,21 @@ header .nav-right{
 }
 
 @media (max-width:900px){
+  .home-about-grid{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-about-copy{
+    order: 1;
+  }
+
+  .home-about-media{
+    order: 2;
+    width: min(100%, 540px);
+    margin: 0 auto;
+  }
+
   .home-about-copy{
     text-align: center;
     margin: 0 auto;
@@ -1216,8 +1231,15 @@ header .nav-right{
 }
 
 @media (max-width:768px){
+  .home-about-media{
+    width: calc(100% + 12px);
+    max-width: none;
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+
   .home-about-visual{
-    min-height: 280px;
+    min-height: 300px;
     max-height: 420px;
   }
 }
@@ -2726,20 +2748,6 @@ body{ padding-top: var(--header-h); }
   .services-hero-inner p{
     color: #fff;
     text-shadow: 0 2px 18px rgba(0,0,0,.28);
-  }
-
-  .stylists-page .page-title{
-    color: var(--logo-brown);
-    text-shadow: none;
-  }
-
-  .stylists-page .page-title::after{
-    background: var(--line);
-  }
-
-  .stylists-page .stylists-hero p{
-    color: rgba(89,78,69,.78);
-    text-shadow: none;
   }
 
   .services-page .page-title::after{
