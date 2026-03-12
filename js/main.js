@@ -68,7 +68,7 @@
 
       window.setTimeout(() => {
         window.location.href = url.href;
-      }, 360);
+      }, 320);
     });
   }
 
